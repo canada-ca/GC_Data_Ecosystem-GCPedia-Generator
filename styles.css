@@ -1,0 +1,17 @@
+.headermenu {
+  text-align: center;
+  font-weight: bold;
+  font-family: "Arial";
+  background-color: maroon;
+  color: white;
+  border-collapse: collapse;
+  width: 80%;
+  height: 4em;
+}
+
+.headermenu_cell {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  color: white;
+}
+

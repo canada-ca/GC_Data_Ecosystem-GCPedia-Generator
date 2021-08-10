@@ -1,0 +1,44 @@
+{{In progress (bilingual)}}
+Aller à [[Ressources DPD|français]] [[fr:Ressources DPD]]
+{{template: CDO_Menu}}
+
+=== <span style="color:#4682B4">ESDC Kiosk - Government of Canada Data Conference - 2021</span>  ===
+<span style="color:#4682B4">(coming soon)</span>
+__NOTOC__ 
+
+=== <span style="color:#4682B4">ESDC Data Strategy</span> ===
+*[[Media:SSPB-CDO-Data Strategy 101 for DPC-20180606.pptx|Data Strategy 101]] 
+*[[Media:SSPB-CDO-DSPlacemat-20180104.docx|Data Strategy Placemat]] 
+*[https://www.canada.ca/en/privy-council/corporate/clerk/publications/data-strategy.html Report to the Clerk of the Privy Council: A Data Strategy Roadmap for the Federal Public Service]
+*[[Media:ESDC response to the Data Strategy for the Federal Public Service.pdf|Response to Recommendation 1]]
+
+=== <span style="color:#4682B4">Data Management</span> ===
+*[[media:Why EDRM v7.5.pptx|Understanding the Enterprise Data Reference Model (EDRM) Draft]]
+*[[media:BI and Analytics EARB Presentation.pptx| BI & Analytics Reference Architecture Presentation]]
+
+=== <span style="color:#4682B4">Analytics</span> ===
+*[[Media:SSPB-DMD-DataScienceOverviewv eng v2-5.pptx|Data Science Deck]]
+*[[Media:ESDC AIS V3.pdf|ESDC AI Strategy (draft)]]
+
+=== <span style="color:#4682B4">Access</span> ===
+====Data Inventory====
+*[http://mlwb3071-u.sade-edap.prv/EDSSI-SIADI/DMIS-SIMDB/(S(kv0hsoc2vm3r0por5d4wiwxb))/index.aspx?Redirect=home.aspx Data Inventory]
+
+====Open Government and Open Data====
+*[[media:SSPB-DMD-OGIP-FINAL.pdf | ESDC Open Government Implementation Plan (OGIP)]]
+*ESDC Open Data Toolkit - coming soon
+*[[media:Hackathon Playbook Checklist.docx| Hackathon Playbook Checklist]]
+*[[media:Hackathon Playbook EN.docx| Hackathon Playbook]]
+
+=== <span style="color:#4682B4">Data Governance</span> ===
+*[[Media:Data and Privacy Committee - DPC ToR v11 clean.docx|Data and Privacy Committee - Terms of Reference]]
+*[[Media:ESDCDataGovernance101.pptx|Data Governance 101]]
+*[[Media:Data Frame_Eng_draft.docx|ESDC's Data Frame (policy instrument)]]
+**[[Media:ESDC_Data Frame.pptx|ESDC's Data Frame (presentation)]]
+*[[Media:ESDC Data Policy.docx|Draft Data Policy]]
+*[[Media:ESDC_Data_Governance_Walk_Phase_FINAL_(003).pdf|Data Governance Walk Phase]]
+
+===<span style="color:#4682B4">People</span>===
+*[[Media:CDO Generic EC Statement of Merit Data Stream.xlsx|Data Working Group proposal for a Generic EC Data Stream SOMC]]
+*[https://www.gcpedia.gc.ca/gcwiki/images/5/52/Persona_Infographics_for_data_use_2019_EN.pdf Data Literacy Personas]
+*[[:Media:Persona Fundamental Placemat DRAFT.jpg|Data Literacy Fundamentals Placemat]]
