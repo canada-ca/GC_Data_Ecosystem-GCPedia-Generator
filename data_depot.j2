@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .headermenu {
+      text-align: center;
+      font-weight: bold;
+      font-family: Arial;
+      background-color: maroon;
+      table-layout: fixed;
+      border-collapse: collapse;
+      color: white;
+      width: 80%;
+      height: 4em;
+    }
+
+    .headeritem {
+      border-left: 2px solid white;
+      border-right: 2px solid white;
+    }
+
+    .headeritem  a {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <table class="headermenu">
+    <tr>
+      {% for item in sections %}
+        <td class="headeritem"><a href="#{{item.replace(' ', '_')}}">{{item}}</a></td> 
+      {%- endfor %}
+    </tr>
+  </table>
+</body>
+</html>
+
