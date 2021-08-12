@@ -7,10 +7,9 @@
       text-align: center;
       font-weight: bold;
       font-family: Arial;
-      background-color: maroon;
+      background-color: #4B088A;
       table-layout: fixed;
       border-collapse: collapse;
-      color: white;
       width: 80%;
       height: 4em;
     }
@@ -18,6 +17,7 @@
     .headeritem {
       border-left: 2px solid white;
       border-right: 2px solid white;
+      color: white;
     }
 
     .headeritem  a {
@@ -28,7 +28,7 @@
 <body>
   <table class="headermenu">
     <tr>
-      {% for item in sections %}
+      {% for item in data.keys() %}
         <td class="headeritem"><a href="#{{item.replace(' ', '_')}}">{{item}}</a></td> 
       {%- endfor %}
     </tr>
@@ -36,3 +36,19 @@
 </body>
 </html>
 
+Data Depot - is a collaborative reference based catalogue of data resources created for and maintained by data practitioners. <br />
+Please email {% raw %}{{em|madina.ibragimova@csps-efpc.gc.ca}} {% endraw %} if you have any questions pertaining this page.<br />
+Version française à suivre. 
+
+__NOTOC__
+
+{% for k, v in data.items() -%}
+  == {{k}} ==
+  {% for elem in v -%}
+    {% if elem.url -%}
+      * [{{elem.url or ""}} {{elem.name}}]
+    {% else -%}
+      * {{elem.name}}
+    {% endif -%}
+  {% endfor %}
+{% endfor %}
