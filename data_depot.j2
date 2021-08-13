@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+[[File:Data Universe banner.jpg|700px|centre]]
 <html>
 <head>
   <meta charset="UTF-8">
-  <style>
+<style>
+    .headercontainer {
+        margin: auto;
+    }
+
     .headermenu {
       text-align: center;
       font-weight: bold;
@@ -10,13 +14,14 @@
       background-color: #4B088A;
       table-layout: fixed;
       border-collapse: collapse;
-      width: 80%;
+      width: 100%;
       height: 4em;
     }
 
     .headeritem {
-      border-left: 2px solid white;
-      border-right: 2px solid white;
+      border-left: 0.25ch solid white;
+      border-right: 0.25ch solid white;
+      padding: 0.5ch;
       color: white;
     }
 
@@ -27,28 +32,23 @@
 </head>
 <body>
   <table class="headermenu">
-    <tr>
-      {% for item in data.keys() %}
-        <td class="headeritem"><a href="#{{item.replace(' ', '_')}}">{{item}}</a></td> 
-      {%- endfor %}
-    </tr>
+      <div class="headercontainer">
+        <tr>
+          {% for cat in CATEGORIES -%}
+              <td class="headeritem">
+                  <a href="{{gen_url(cat)}}">
+                      {{format_link_text(cat)}}
+                  </a>
+              </td> 
+          {%- endfor %}
+        </tr>
+      </div>
   </table>
 </body>
 </html>
 
-Data Depot - is a collaborative reference based catalogue of data resources created for and maintained by data practitioners. <br />
-Please email {% raw %}{{em|madina.ibragimova@csps-efpc.gc.ca}} {% endraw %} if you have any questions pertaining this page.<br />
+Data Depot is a collaborative reference based catalogue of data resources created for and maintained by data practitioners. Please email {% raw %}{{em|madina.ibragimova@csps-efpc.gc.ca}} {% endraw %} if you have any questions pertaining this page.
+
 Version française à suivre. 
 
 __NOTOC__
-
-{% for k, v in data.items() -%}
-  == {{k}} ==
-  {% for elem in v -%}
-    {% if elem.url -%}
-      * [{{elem.url or ""}} {{elem.name}}]
-    {% else -%}
-      * {{elem.name}}
-    {% endif -%}
-  {% endfor %}
-{% endfor %}
