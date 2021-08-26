@@ -4,7 +4,6 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import pandas as pd
 import urllib
 import functools
-import ipdb
 
 Element = namedtuple("Element", ["name", "url"])
 
