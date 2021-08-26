@@ -34,7 +34,7 @@
   <table class="headermenu">
       <div class="headercontainer">
         <tr>
-          {% for cat in CATEGORIES -%}
+          {% for cat in data.keys() -%}
               <td class="headeritem">
                   <a href="{{gen_url(cat)}}">
                       {{format_link_text(cat)}}
@@ -52,3 +52,24 @@ Data Depot is a collaborative reference based catalogue of data resources create
 Version française à suivre. 
 
 __NOTOC__
+
+{% for cat, entries in data.items() %}
+== {{cat}} ==
+
+{% raw -%}
+{{Collapsible list
+{% endraw -%}
+| title = {{cat}}
+| bullets = 
+{% for ent in entries -%}
+{% if ent.url -%}
+{{"| "}}<html><a href={{ent.url}}>{{ent.name}}</a></html>
+{% else -%}
+{{"| " + ent.name }}
+{% endif -%}
+{% endfor -%}
+{% raw -%}
+}}
+{% endraw -%}
+{% endfor %}
+
