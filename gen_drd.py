@@ -68,7 +68,7 @@ def gen_url(item) -> str:
 
 def make_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Generate Wikitext source for the Data Directory GCpedia page."
+        description="Generate Wikitext source for the Data Resource Directory GCpedia page."
     )
     parser.add_argument(
         "input",
@@ -90,7 +90,7 @@ def main():
     data = recategorize(load_data(args.input))
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     env.globals.update(format_link_text=format_link_text, gen_url=gen_url, data=data)
-    template = env.get_template("data_depot.j2")
+    template = env.get_template("drd.j2")
     args.output.write(template.render())
 
 
