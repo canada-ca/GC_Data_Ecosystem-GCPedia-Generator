@@ -4,6 +4,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import pandas as pd
 import urllib
 import functools
+import argparse
+import sys
 
 Element = namedtuple("Element", ["name", "url"])
 
@@ -16,7 +18,7 @@ CATEGORIES = {
 }
 
 
-def df_to_elem(group):
+def df_to_elem(group) -> list[Element]:
     def make_elem(r):
         url = r["URL"] if not pd.isna(r["URL"]) else None
         return Element(r["Entity Name"], url)
@@ -24,10 +26,9 @@ def df_to_elem(group):
     return [make_elem(r) for _, r in group.iterrows()]
 
 
-# TODO: Split URL
-def load_data() -> dict:
+def load_data(path) -> dict:
     df = (
-        pd.read_csv("entities_master.csv", usecols=["Entity Full Name", "Type", "URL"])
+        pd.read_csv(path, usecols=["Entity Full Name", "Type", "URL"])
         .dropna(subset=["Entity Full Name", "Type"])
         .reset_index(drop=True)
     )
@@ -55,23 +56,42 @@ def recategorize(data: dict) -> dict:
     return out
 
 
-def format_link_text(item):
+def format_link_text(item) -> str:
     return item.replace("/", f"/{chr(0x200b)}")
 
 
-def gen_url(item):
+def gen_url(item) -> str:
     if "/" in item:
         return f"#{item.replace('/', '.2F')}"
     return f"#{urllib.parse.quote(item.replace(' ', '_'), safe='')}"
 
 
+def make_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Generate Wikitext source for the Data Directory GCpedia page."
+    )
+    parser.add_argument(
+        "input",
+        type=argparse.FileType("r"),
+        help="Input file containing entity data.",
+    )
+    parser.add_argument(
+        "-o",
+        dest="output",
+        type=argparse.FileType("w"),
+        default=sys.stdout,
+        help="Destination file to write to. Defaults to stdout.",
+    )
+    return parser
+
+
 def main():
-    data = recategorize(load_data())
+    args = make_parser().parse_args()
+    data = recategorize(load_data(args.input))
     env = Environment(loader=FileSystemLoader("."), autoescape=select_autoescape())
     env.globals.update(format_link_text=format_link_text, gen_url=gen_url, data=data)
     template = env.get_template("data_depot.j2")
-    with open("data_depot_out.html", "w") as f:
-        f.write(template.render())
+    args.output.write(template.render())
 
 
 if __name__ == "__main__":
