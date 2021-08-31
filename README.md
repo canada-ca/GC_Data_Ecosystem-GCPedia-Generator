@@ -1,7 +1,7 @@
 # Data Resource Directory GCPedia Page Generator
 
 This repository contains the Python script and Jinja2 template used to generate the Data Resource
-Directory's GCPedia page.
+Directory's GCPedia page, it is part of the GC Data Ecosystem Project
 
 ```
 usage: gen_drd.py [-h] [-o OUTPUT] input
